@@ -1,50 +1,72 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Lions Keep Project Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Build the Game in Vertical Slices
+Prioritize a small, playable tactical RPG MVP over broad engine expansion. Deliver features as
+end-to-end slices that can be demonstrated and verified. Reuse existing engine capabilities when
+they meet the feature's needs; add abstractions only when a spec demonstrates a concrete need.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Create an Original Game Identity
+Lions Keep may use broad tactical-RPG concepts such as grid-based battles, turn order, elevation,
+and character classes. Define their rules and implementation for Lions Keep. All shipped art,
+characters, maps, names, story, audio, animation, UI composition, and other expressive presentation
+MUST be original or properly licensed. Do not extract or reproduce Final Fantasy Tactics assets or
+distinctive expressive designs. The reference game is inspiration, not a feature specification.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Keep Issues and Specs Authoritative
+Every feature MUST trace to a GitHub issue that explains the problem, player value, and motivation.
+Its feature spec defines scope, behavior, acceptance criteria, assumptions, and exclusions. Plans
+and tasks MUST derive from that spec and MUST NOT silently change its scope. When implementation,
+plan, tasks, or existing code conflict with the spec, stop and resolve the discrepancy with the
+project owner before proceeding.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Make Tactical Rules Explicit and Verifiable
+Gameplay rules MUST be stated in observable, testable terms, including relevant boundaries such as
+movement range, turn eligibility, elevation, targeting, and defeat. Core battle outcomes MUST be
+deterministic for the same initial state and inputs unless a feature spec explicitly requires
+randomness and defines how it is controlled. Tests MUST cover meaningful rule boundaries and
+regressions.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Match Validation to Risk
+Every feature MUST have acceptance checks derived from its user scenarios. Add automated tests for
+gameplay rules and shared engine behavior where practical; verify visual or interaction behavior
+with a focused manual check when it cannot be covered automatically. Do not claim a feature is
+complete while its required checks are unrun or failing.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Product and Technical Constraints
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- The product goal is a playable MVP of Lions Keep, an original tactical RPG, built in this
+	repository's existing C++23/CMake framework.
+- Keep the MVP scope explicit in its GitHub issue and spec. Campaigns, editors, multiplayer, large
+	progression systems, and other deferred ideas remain out of scope until separately prioritized
+	and specified.
+- Follow repository build, formatting, resource-lifetime, and generated-file constraints in
+	`AGENTS.md`. Do not modify third-party or generated content unless a task explicitly requires it.
+- Specs and plans MUST record unresolved assumptions and dependencies that materially affect
+	player experience, architecture, or scope. Agents MUST ask rather than invent a decision when no
+	safe default exists.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Specification-Driven Workflow
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+1. Start with a GitHub issue describing why the feature matters and who benefits.
+2. Create or update one feature spec from that issue. Include player scenarios, testable
+	 acceptance criteria, success measures, assumptions, and out-of-scope items.
+3. Review and approve the spec before planning. The plan records how the approved scope fits the
+	 existing codebase and identifies risks; tasks are dependency-ordered work to satisfy the spec.
+4. During implementation, agents MUST consult this constitution, `AGENTS.md`, the linked issue,
+	 and the active feature artifacts. Surface contradictions before changing scope.
+5. Update the spec and obtain approval before implementing newly discovered requirements. Do not
+	 smuggle deferred roadmap ideas into the current feature's tasks.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution governs cross-feature product and engineering decisions. `AGENTS.md` provides
+repository operating details; a feature issue and its approved spec provide feature-specific intent
+and scope. When these sources appear to conflict, agents MUST pause and ask the project owner to
+resolve the conflict rather than choosing silently. Amendments require project-owner approval,
+an updated rationale, and a semantic version increment: MAJOR for incompatible principle changes,
+MINOR for new or materially expanded principles, and PATCH for clarifications that do not change
+policy. Feature plans and reviews MUST check compliance with this constitution.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-09-29 | **Last Amended**: 2026-09-29

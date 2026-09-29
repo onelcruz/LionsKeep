@@ -11,6 +11,21 @@ assumptions before editing. Be suspicious of lifecycle, resource ownership, glob
 Never revert user changes unless the user explicitly asks. Do not edit `build/`, generated Visual Studio/CMake files, or
 third-party code unless the request specifically targets them.
 
+## Lions Keep Product Direction
+
+This repository contains the Project-Tactics framework and prototypes. The product goal is a playable MVP of **Lions
+Keep**, an original tactical RPG built on this existing framework. Broad genre concepts include grid-based battles,
+turn order, elevation, and character classes; define Lions Keep's rules and implementation independently. Do not copy or
+extract Final Fantasy Tactics assets or reproduce its distinctive expressive designs. Create or use original or properly
+licensed art, characters, maps, names, story, audio, animation, and UI presentation.
+
+## Agent Source of Truth
+
+Before planning or implementing a feature, consult `.specify/memory/constitution.md`, this file, the linked GitHub issue,
+and the active feature spec/plan/tasks. The issue explains why the work matters; the approved spec controls feature
+behavior and scope; plans and tasks derive from it. If these sources conflict, or implementation reveals a scope change,
+pause and ask the project owner to resolve it. Update and review the spec before implementing newly discovered scope.
+
 ## Project Summary
 
 Project-Tactics is a C++23 tactical RPG/game framework inspired by Final Fantasy Tactics. It is currently structured as
