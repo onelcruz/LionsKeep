@@ -10,6 +10,19 @@
 
 [Extract from feature spec: primary requirement + technical approach from research]
 
+## Existing Implementation Assessment
+
+For every feature requirement or acceptance scenario, record its current implementation status and evidence before
+proposing a solution. Use **Implemented** only when existing behavior satisfies the approved acceptance criteria;
+mark partially complete work **Partial**. Cite concrete repository paths and symbols or tests.
+
+| Requirement / acceptance scenario | Status (Implemented / Partial / Missing) | Existing evidence (path and symbol/test) | Planned treatment (reuse / extend / replace / create) and remaining gap |
+|------------------------------------|------------------------------------------|------------------------------------------|-------------------------------------------------------------------------|
+| [Requirement ID or scenario] | [Status] | [Evidence] | [Treatment and gap] |
+
+If existing code behavior conflicts with the approved spec, stop planning and request a project-owner decision rather
+than silently changing the requirement or working around the implementation.
+
 ## Technical Context
 
 <!--

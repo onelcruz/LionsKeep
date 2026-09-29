@@ -26,6 +26,13 @@ and the active feature spec/plan/tasks. The issue explains why the work matters;
 behavior and scope; plans and tasks derive from it. If these sources conflict, or implementation reveals a scope change,
 pause and ask the project owner to resolve it. Update and review the spec before implementing newly discovered scope.
 
+Before planning or implementing, inspect the existing source, tests, resources, and configuration relevant to the feature.
+In the plan, classify each feature requirement or acceptance scenario as **Implemented**, **Partial**, or **Missing**;
+cite concrete file/symbol/test evidence and state whether the solution will reuse, extend, replace, or create behavior.
+Existing infrastructure does not count as a completed player-facing feature unless it satisfies the approved acceptance
+criteria. Prefer extending suitable existing systems over creating parallel implementations. If code behavior conflicts
+with the approved spec, document the conflict and pause for the project owner's decision.
+
 ## Project Summary
 
 Project-Tactics is a C++23 tactical RPG/game framework inspired by Final Fantasy Tactics. It is currently structured as

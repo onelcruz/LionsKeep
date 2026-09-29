@@ -56,9 +56,17 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 1. **Setup**: Run `python .specify/scripts/python/setup_plan.py --json` from repo root and parse JSON for FEATURE_SPEC, IMPL_PLAN, FEATURE_DIR, BRANCH. For single quotes in args like "I'm Groot", use escape syntax: e.g 'I'\''m Groot' (or double-quote if possible: "I'm Groot").
 
-2. **Load context**: Read FEATURE_SPEC and `.specify/memory/constitution.md`. Load IMPL_PLAN template (already copied).
+2. **Load context**: Read FEATURE_SPEC, `.specify/memory/constitution.md`, and applicable repository agent guidance. Load IMPL_PLAN template (already copied).
 
-3. **Execute plan workflow**: Follow the structure in IMPL_PLAN template to:
+3. **Audit existing implementation before designing**:
+  - Inspect relevant application code, engine/library code, resources/configuration, and tests for each feature requirement and acceptance scenario.
+  - In the `Existing Implementation Assessment` section of IMPL_PLAN, classify each requirement/scenario as **Implemented**, **Partial**, or **Missing**.
+  - Cite concrete project-relative file paths and symbols or tests as evidence. State whether the planned work will **reuse**, **extend**, **replace**, or **create** behavior, and identify the remaining gap.
+  - Mark behavior **Partial** when code exists but does not meet the spec's acceptance criteria. A reusable framework capability is not proof that the player-facing feature is implemented.
+  - Prefer extending suitable existing systems over creating parallel implementations. If existing behavior conflicts with the approved spec, document the conflict and stop for the project owner's decision before designing a resolution.
+  - Do not begin Phase 0 research or Phase 1 design until this assessment is complete.
+
+4. **Execute plan workflow**: Follow the structure in IMPL_PLAN template to:
    - Fill Technical Context (mark unknowns as "NEEDS CLARIFICATION")
    - Fill Constitution Check section from constitution
    - Evaluate gates (ERROR if violations unjustified)
